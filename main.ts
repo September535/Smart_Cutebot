@@ -20,7 +20,7 @@ function right () {
     )
     pins.i2cWriteNumber(
     24,
-    100,
+    35,
     NumberFormat.UInt8LE,
     true
     )
@@ -46,7 +46,7 @@ function tracking_right () {
     )
     pins.i2cWriteNumber(
     24,
-    35,
+    25,
     NumberFormat.UInt8LE,
     true
     )
@@ -86,7 +86,7 @@ function front () {
     )
     pins.i2cWriteNumber(
     24,
-    100,
+    40,
     NumberFormat.UInt8LE,
     true
     )
@@ -112,7 +112,7 @@ function left () {
     )
     pins.i2cWriteNumber(
     24,
-    100,
+    35,
     NumberFormat.UInt8LE,
     true
     )
@@ -144,22 +144,27 @@ function stop () {
     )
 }
 function tracking () {
-    serial.writeLine("" + (pins.analogReadPin(AnalogPin.P0)))
-    serial.writeLine("" + (pins.analogReadPin(AnalogReadWritePin.P1)))
     if (pins.analogReadPin(AnalogPin.P0) >= 1000 && pins.analogReadPin(AnalogReadWritePin.P1) >= 1000) {
         stop()
     }
     if (pins.analogReadPin(AnalogPin.P0) <= 300 && pins.analogReadPin(AnalogReadWritePin.P1) <= 300) {
         stop()
     }
-    if (pins.analogReadPin(AnalogPin.P0) >= 300 && pins.analogReadPin(AnalogReadWritePin.P0) <= 800 && (pins.analogReadPin(AnalogReadWritePin.P1) >= 300 && pins.analogReadPin(AnalogReadWritePin.P1) <= 800)) {
-        tracking_front()
+    if (pins.analogReadPin(AnalogPin.P0) >= 300 && pins.analogReadPin(AnalogReadWritePin.P0) <= 1000) {
+        if (pins.analogReadPin(AnalogReadWritePin.P1) >= 300 && pins.analogReadPin(AnalogReadWritePin.P1) <= 1000) {
+            tracking_front()
+        }
+        if (pins.analogReadPin(AnalogReadWritePin.P1) >= 180 && pins.analogReadPin(AnalogReadWritePin.P1) <= 300) {
+            tracking_right()
+        }
     }
-    if (pins.analogReadPin(AnalogPin.P0) >= 720 && pins.analogReadPin(AnalogReadWritePin.P0) <= 800 && (pins.analogReadPin(AnalogReadWritePin.P1) >= 150 && pins.analogReadPin(AnalogReadWritePin.P1) <= 300)) {
-        tracking_right()
-    }
-    if (pins.analogReadPin(AnalogReadWritePin.P1) >= 720 && pins.analogReadPin(AnalogReadWritePin.P1) <= 800 && (pins.analogReadPin(AnalogReadWritePin.P0) >= 150 && pins.analogReadPin(AnalogReadWritePin.P0) <= 300)) {
-        tracking_left()
+    if (pins.analogReadPin(AnalogReadWritePin.P1) >= 300 && pins.analogReadPin(AnalogReadWritePin.P1) <= 1000) {
+        if (pins.analogReadPin(AnalogReadWritePin.P0) >= 300 && pins.analogReadPin(AnalogReadWritePin.P0) <= 1000) {
+            tracking_front()
+        }
+        if (pins.analogReadPin(AnalogReadWritePin.P0) >= 180 && pins.analogReadPin(AnalogReadWritePin.P0) <= 300) {
+            tracking_left()
+        }
     }
 }
 function follow () {
@@ -200,7 +205,7 @@ function backward () {
     )
     pins.i2cWriteNumber(
     24,
-    100,
+    45,
     NumberFormat.UInt8LE,
     true
     )
@@ -301,7 +306,7 @@ function tracking_left () {
     )
     pins.i2cWriteNumber(
     24,
-    35,
+    25,
     NumberFormat.UInt8LE,
     true
     )
