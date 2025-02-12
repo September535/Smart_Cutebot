@@ -20,7 +20,7 @@ function right () {
     )
     pins.i2cWriteNumber(
     24,
-    35,
+    30,
     NumberFormat.UInt8LE,
     true
     )
@@ -86,7 +86,7 @@ function front () {
     )
     pins.i2cWriteNumber(
     24,
-    40,
+    35,
     NumberFormat.UInt8LE,
     true
     )
@@ -112,7 +112,7 @@ function left () {
     )
     pins.i2cWriteNumber(
     24,
-    35,
+    30,
     NumberFormat.UInt8LE,
     true
     )
@@ -205,7 +205,7 @@ function backward () {
     )
     pins.i2cWriteNumber(
     24,
-    45,
+    30,
     NumberFormat.UInt8LE,
     true
     )
@@ -235,7 +235,7 @@ function tracking_front () {
     )
     pins.i2cWriteNumber(
     24,
-    35,
+    30,
     NumberFormat.UInt8LE,
     true
     )
