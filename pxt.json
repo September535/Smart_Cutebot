@@ -1,6 +1,6 @@
 {
-    "name": "microbit",
-    "description": "",
+    "name": "Smart_Cutebot",
+    "description": "MakeCode project for a CuteBot smart car with infrared control, line tracking, obstacle avoidance, and ultrasonic following.",
     "dependencies": {
         "core": "*",
         "radio": "*",
